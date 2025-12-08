@@ -5,7 +5,9 @@ from .model import FashionMNISTModel
 MODEL_PATH = pathlib.Path(__file__).parent.parent / \
     'models/trained_models/FMNIST_pytorch_cnn_model.pth'
 
-model = FashionMNISTModel()
+model = FashionMNISTModel(input_shape=1,
+                          hidden_units=10,
+                          output_shape=10)
 model.load_state_dict(torch.load(MODEL_PATH,
                                  map_location='cpu'))
 model.eval()
